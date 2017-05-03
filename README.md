@@ -1,2 +1,2 @@
-# Neural-Network
-Several Neural Network Algorithms
+# Neural-Network-Algorithms
+``Several Neural Network Algorithms``
