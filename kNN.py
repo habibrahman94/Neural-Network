@@ -61,15 +61,16 @@ def main():
     loadFile('iris.data', 0.66, trainingSet, testSet)
     print('# of Train Set: '+repr(len(trainingSet)))
     print('# of Test Set: '+repr(len(testSet)))
-    K=5 ##Kth 
-    cnt=0
-    for i in range(len(testSet)):
-        neighbor = kthNeighbors(trainingSet, testSet[i], K) ##For each test Data
-        result = getMajor(neighbor)
-        if result == testSet[i][-1]:
-            cnt+=1
-
-    accuracy = ((cnt/len(testSet))*100) ## Number of Correct Set / # of testSet 
-    print("Accuracy: "+ repr(accuracy)+'%')
+    for K in range(1,11):
+        print("K = "+repr(K))
+        cnt=0
+        for i in range(len(testSet)):
+            neighbor = kthNeighbors(trainingSet, testSet[i], K) ##For each test Data
+            result = getMajor(neighbor)
+            if result == testSet[i][-1]:
+                cnt+=1
+    
+        accuracy = ((cnt/len(testSet))*100) ## Number of Correct Set / # of testSet 
+        print("Accuracy: "+ repr(accuracy)+'%')
     
 main()
